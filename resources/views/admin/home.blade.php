@@ -1,6 +1,6 @@
 @extends('admin.adminsidebar')
 
-@section('admincontent')
+@section('content')
 <div class="row align-items-top">
     <div class="col-lg-6">
 

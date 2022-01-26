@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('content')
+@section('admincontent')
   
     <!-- ======= Sidebar ======= -->
     <aside id="sidebar" class="sidebar">
@@ -238,5 +238,4 @@
       </ul>
 
   </aside><!-- End Sidebar-->  
-  @yield('admincontent')
 @endsection
