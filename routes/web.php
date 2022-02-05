@@ -17,10 +17,12 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('welcome');
 });
 
 Auth::routes();
+
+Route::resource('admin/voucher', VoucherController::class);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
