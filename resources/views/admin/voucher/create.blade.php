@@ -1,5 +1,10 @@
 @extends('admin.adminsidebar')
-
+<?php 
+$userlength = 16;
+$passlength = 3;
+$UserrandomString = substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($userlength/strlen($x)) )),1,$userlength);
+$PassrandomString = substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($passlength/strlen($x)) )),1,$passlength);
+?>
 @section('content')
 <div class="pagetitle">
     <h1>Vouchers</h1>
@@ -31,11 +36,11 @@
                             @csrf
                             <div class="form-group">
                                 <label for="username">Username</label>
-                                <input type="text" id="username" class="form-control" name="username" max="16" value=""/>
+                                <input type="text" class="form-control" name="username" max="16" value="{{$UserrandomString;}}"/>
                             </div>
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input type="text" id="password" class="form-control" name="password" max="3" value=""/>
+                                <input type="text" class="form-control" name="password" max="3" value="{{$PassrandomString;}}"/>
                             </div>
                             <button type="submit" class="btn btn-primary">Simpan</button>
                         </form>
@@ -43,23 +48,4 @@
             </div>
         </div>
     </section>
-    <script>
-        
-        var autouser = makeid(16);
-        var autopass = makeud(3);
-        $(document).ready(function() {
-            $('#username').val(autouser)
-            $('#password').val(autopass)
-        }
-        function makeid(length) {
-        var result           = '';
-        var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-        var charactersLength = characters.length;
-        for ( var i = 0; i < length; i++ ) {
-        result += characters.charAt(Math.floor(Math.random() * 
-        charactersLength));
-        }
-        return result;
-        }
-    </script>
 @endsection
